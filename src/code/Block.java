@@ -6,15 +6,16 @@ import java.security.NoSuchAlgorithmException;
 public class Block {
     private int index;
     private long timestamp;
-    private String data;
     private String previousHash;
+    private Certificate data;
     private String hash;
 
-    public Block(int index, long timestamp, String data, String previousHash) {
+    // Modify the constructor to accept Certificate as data
+    public Block(int index, long timestamp, String previousHash, Certificate data) {
         this.index = index;
         this.timestamp = timestamp;
-        this.data = data;
         this.previousHash = previousHash;
+        this.data = data;
         this.hash = calculateHash();
     }
 
@@ -42,21 +43,16 @@ public class Block {
     public int getIndex() {
         return index;
     }
-
     public long getTimestamp() {
         return timestamp;
     }
-
-    public String getData() {
-        return data;
-    }
-
     public String getPreviousHash() {
         return previousHash;
     }
-
     public String getHash() {
         return hash;
     }
-
+    public Certificate getData() {
+        return data;
+    }
 }
